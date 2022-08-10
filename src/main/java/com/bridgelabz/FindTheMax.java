@@ -1,40 +1,51 @@
 /*
-Find the maximum using Generic Class
+Extend the max method to take more than three parameters
  */
 package com.bridgelabz;
 
-    public class FindTheMax<N extends Comparable<N>>{
-        public N num1, num2, num3;
+import java.util.Arrays;
 
-        public FindTheMax(N num1, N num2, N num3) {
-            this.num1 = num1;
-            this.num2 = num2;
-            this.num3 = num3;
+public class FindTheMax<N extends Comparable<N>>{
+        private N[] inputArray;
+
+        public FindTheMax(N[] inputArray) {//Generics method to accept type from Generics class Array
+            this.inputArray = inputArray;//Converting into this method Object
         }
-
-        public FindTheMax() {
+        public void maxElement(){
+          for(int i = 0 ; i < inputArray.length - 1; i++ ){
+              if (inputArray[i].compareTo(inputArray[i+1]) > 0){
+                  inputArray[i + 1] = inputArray[i];
+              }
+          }
+            System.out.println(inputArray[inputArray.length - 1]);
         }
-
-        public static <N extends Comparable<N>> N maxNumber(N num1, N num2, N num3) {
-            if (num1.compareTo(num2) > 0 && num1.compareTo(num3) > 0) {
-                return num1;
-            } else if (num2.compareTo(num1) > 0 && num2.compareTo(num3) > 0) {
-                return num2;
-            } else
-                return num3;
+        public void display() {
+            for (int i = 0; i < inputArray.length; i++) {
+                System.out.println(inputArray[i]);//Before sorting display the input
+            }
+            Arrays.sort(inputArray);
+            System.out.println();
+            System.out.println("After sorting : ");
+            for(int i = 0; i< inputArray.length; i++){
+                System.out.println(inputArray[i]);//After sorting display the output
+            }
         }
-        public <T extends Comparable <T>> T testMaximum() {
-            return (T) FindTheMax.maxNumber(num1, num2, num3);
-        }
-
-
-
         public static void main(String[] args) {
-            FindTheMax compareInteger = new FindTheMax(3, 5, 7);
-            System.out.println("Maximum number out of three integers is: " + compareInteger.testMaximum());
-            FindTheMax comapreFloat = new FindTheMax (3.0f, 5.0f, 7.0f);
-            System.out.println("Maximum number out of three float is: " + comapreFloat.testMaximum());
-            FindTheMax compareString = new FindTheMax("Apple", "Grapes", "Banana");
-            System.out.println("Maximum among three string is: " + compareString.testMaximum());
+         Integer[] i = {3, 55, 7, 15, 57};
+         Float[] f = {3.0f,1357.57f, 357.97f, 987.08f, 457.753f};
+         String[] s = {"Apple", "Mango", "Grapes", "PineApple", "Watermelon"};
+         System.out.println("-:Integer:-");
+         new FindTheMax(i).display();
+         System.out.println();
+         System.out.println("-:Float:-");
+         new FindTheMax(f).display();
+         System.out.println();
+         System.out.println("-:String:-");
+         new FindTheMax(s).display();
+         System.out.println();
+         System.out.println("Maximum from all values:");
+         new FindTheMax(i).maxElement();
+         new FindTheMax(f).maxElement();
+         new FindTheMax(s).maxElement();
         }
     }
