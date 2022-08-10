@@ -1,5 +1,5 @@
 /*
-Given three Floats Find the maximum
+Given three Strings Find the maximum
  */
 package com.bridgelabz;
 
@@ -8,36 +8,36 @@ import java.util.Scanner;//Scanner class is used to take user input
 public class FindTheMax {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter three Floats : ");
+        System.out.println("Enter three String : ");
 
-        float a = sc.nextFloat();//nextInt() method scans the next token of the Input as int
-        float b = sc.nextFloat();//nextInt() method scans the next token of the Input as int
-        float c = sc.nextFloat();//nextInt() method scans the next token of the Input as int
+        String s1 = sc.nextLine();//nextLine() method advances this scanner past the current line and returns the input that was skipped
+        String s2 = sc.nextLine();//nextLine() method advances this scanner past the current line and returns the input that was skipped
+        String s3 = sc.nextLine();//nextLine() method advances this scanner past the current line and returns the input that was skipped
 
-        Float i1 = a;
-        Float i2 = b;
-        Float i3 = c;
 
-        int result1 = i1.compareTo(i2);//compare between two Float by compareTo() method
-        int result2 = 0;
-        int result3 = 0;
-        if(result1 < 0){
-            result2 = i2.compareTo(i3);//compare between two Float by compareTo() method
-        }else if(result1 > 0){
-            result3 = i1.compareTo(i3);//compare between two Float by compareTo() method
-        }else{
-            result2 = i1.compareTo(i3);//compare between two Float by compareTo() method
+        int result1 = s1.compareTo(s2);
+        int result2=0;
+        int result3=0;
+        if (result1 < 0) {
+            result2 = s2.compareTo(s3);
+        } else if (result1 > 0) {
+            result3 = s1.compareTo(s3);
+        } else {
+            result2 = s1.compareTo(s3);
         }
-        if(result2 > 0){
-            System.out.println("Max for all three Float is "+" "+b);
-        }else if(result2 < 0){
-            System.out.println("Max for all three Float is "+" "+c);
-        }else if(result3 > 0){
-            System.out.println("Max for all three Float is "+" "+a);
-        }else if(result3 < 0){
-            System.out.println("Max for all three Float is "+" "+c);
-        }else{
-            System.out.println("Max for all three Float is "+" "+a);
+        if (result2 > 0) {
+            System.out.println("Max for all three strings are"+" "+s2);
+        } else if (result2 < 0) {
+            System.out.println("Max for all three strings are"+" "+s3);
+        } else if (result3>0){
+            System.out.println("Max for all three strings are"+" "+s1);
         }
+        else if(result3<0) {
+            System.out.println("Max for all three strings are"+" "+s3);
+        }
+        else {
+            System.out.println("Max for all three strings are"+" "+s1);
+        }
+
     }
 }
