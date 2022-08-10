@@ -12,9 +12,6 @@ package com.bridgelabz;
             this.num3 = num3;
         }
 
-        public FindTheMax() {
-        }
-
         public static <N extends Comparable<N>> N maxNumber(N num1, N num2, N num3) {
             if (num1.compareTo(num2) > 0 && num1.compareTo(num3) > 0) {
                 return num1;
