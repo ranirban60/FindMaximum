@@ -1,43 +1,22 @@
 /*
-Given three Strings Find the maximum
+Find the maximum using Generics
  */
 package com.bridgelabz;
 
-import java.util.Scanner;//Scanner class is used to take user input
-
 public class FindTheMax {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter three String : ");
-
-        String s1 = sc.nextLine();//nextLine() method advances this scanner past the current line and returns the input that was skipped
-        String s2 = sc.nextLine();//nextLine() method advances this scanner past the current line and returns the input that was skipped
-        String s3 = sc.nextLine();//nextLine() method advances this scanner past the current line and returns the input that was skipped
-
-
-        int result1 = s1.compareTo(s2);
-        int result2=0;
-        int result3=0;
-        if (result1 < 0) {
-            result2 = s2.compareTo(s3);
-        } else if (result1 > 0) {
-            result3 = s1.compareTo(s3);
+    public static <N extends Comparable> N maxNumber(N num1, N num2, N num3) {
+        if (num1.compareTo(num2) > 0 && num2.compareTo(num3) > 0) {
+            return num1;
+        } else if (num2.compareTo(num1) > 0 && num1.compareTo(num3) > 0) {
+            return num2;
         } else {
-            result2 = s1.compareTo(s3);
+            return num3;
         }
-        if (result2 > 0) {
-            System.out.println("Max for all three strings are"+" "+s2);
-        } else if (result2 < 0) {
-            System.out.println("Max for all three strings are"+" "+s3);
-        } else if (result3>0){
-            System.out.println("Max for all three strings are"+" "+s1);
-        }
-        else if(result3<0) {
-            System.out.println("Max for all three strings are"+" "+s3);
-        }
-        else {
-            System.out.println("Max for all three strings are"+" "+s1);
-        }
+    }
 
+    public static void main(String[] args) {
+        System.out.println("Maximum number of three Integers is " + maxNumber(3, 5, 7));
+        System.out.println("Maximum number of three Floats is " + maxNumber(3.0f, 5.0f, 7.0f));
+        System.out.println("Maximum number of three Strings is " + maxNumber("Apple", "Peach", "Banana"));
     }
 }
