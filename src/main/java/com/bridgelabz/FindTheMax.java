@@ -1,5 +1,5 @@
 /*
-Find the maximum using Generics
+Find the maximum using Generic Method
  */
 package com.bridgelabz;
 
